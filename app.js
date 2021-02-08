@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const PunkAPIWrapper = require('punkapi-javascript-wrapper');
+const { Z_FIXED } = require('zlib');
 
 const app = express();
 const punkAPI = new PunkAPIWrapper();
@@ -33,6 +34,10 @@ app.get('/random-beer', async (req, res) => {
 
 });
 
+
+
+
+
 app.get("/beers/:id", (req,res) => {
   let id = req.params.id
   console.log(id)
@@ -49,3 +54,14 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
+
+
+function greeting(name, fn){
+  fn(name)
+}
+
+
+greeting("Khizer", function(any) {
+   console.log(any)  
+})
+
